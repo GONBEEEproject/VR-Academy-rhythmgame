@@ -14,9 +14,12 @@ public class SampleNoteObject_Scale : MonoBehaviour
         Vector3 scale = transform.localScale;
         transform.localScale = Vector3.zero;
 
+        transform.localScale = Vector3.one;
+
         //time秒かけてスケールが元に戻る
         //SetEase(Ease.Linear)は動き方の補正、等速で移動するようにする
-        transform.DOScale(scale, time).SetEase(Ease.Linear);
+        //DOScale(ゴールとなる大きさ,かける時間);
+        transform.DOScale(new Vector3(1, 100, 1), time).SetEase(Ease.Linear);
 
         //スタートからtime秒後＝アニメーション終了後に自己破壊
         Destroy(gameObject, time);

@@ -1,16 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ItemBehaviour : MonoBehaviour
 {
 
-    public virtual void Launch(Vector3 from, Vector3 to, float time)
+    protected Sequence animationSequence;
+
+    public virtual void Launch(Transform from,Transform[] path, float time)
+    {
+    }
+
+    public virtual void Interact()
     {
 
     }
 
-    public virtual void Interact()
+    public virtual void OnDestroy()
     {
 
     }

@@ -13,6 +13,7 @@ public class SampleNoteObject_Rotation : MonoBehaviour
 
         //time秒かけてrotate分回転する
         //SetEase(Ease.Linear)は動き方の補正、等速で移動するようにする
+        //DORotate(回転量,かける時間,);
         transform.DORotate(rotate, time, RotateMode.LocalAxisAdd).SetEase(Ease.Linear);
 
         //スタートからtime秒後＝アニメーション終了後に自己破壊

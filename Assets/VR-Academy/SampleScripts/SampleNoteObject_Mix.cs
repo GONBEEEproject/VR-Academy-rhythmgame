@@ -19,8 +19,12 @@ public class SampleNoteObject_Mix : MonoBehaviour
         //Sequenceを宣言して、一連のアニメーションに備える
         Sequence sequence = DOTween.Sequence();
 
+
         //Joinは同時にアニメーションをするもの
-        sequence.Join(transform.DOMove(to, time).SetEase(Ease.Linear));
+        sequence.Join(transform.DOMove(to, time).OnComplete(() =>
+        {
+            transform.DOMove(to, time);
+        }));
         sequence.Join(transform.DOScale(scale, time * 0.5f).SetEase(Ease.Linear));
 
 
@@ -29,6 +33,14 @@ public class SampleNoteObject_Mix : MonoBehaviour
 
         //登録が終わったらSequenceを再生する
         sequence.Play();
+
+
+
+
+        sequence.Play().OnComplete(() => { Debug.Log("全部おわった！"); });
+
+
+
 
 
 

@@ -22,7 +22,9 @@ public class SampleNoteObject_Curve : MonoBehaviour
         //SetEase(Ease.Linear)は動き方の補正、等速で移動するようにする
         //DOPathは曲線に移動させられる移動方法
         //今回は管理が楽なキャットムルロムを選択
-        transform.DOPath(pathPosition, time, PathType.CatmullRom).SetEase(Ease.Linear);
+        //DOPath(経由地の座標全ての配列,かける時間,どの曲線タイプで動かすか);
+        transform.DOPath(pathPosition, time, PathType.CubicBezier).SetEase(Ease.Linear);
+
 
         //スタートからtime秒後＝アニメーション終了後に自己破壊
         Destroy(gameObject, time);
